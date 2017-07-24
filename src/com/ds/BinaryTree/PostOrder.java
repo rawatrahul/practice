@@ -6,17 +6,17 @@ import java.util.Stack;
  * Created by rahul.rawat on 6/9/2017.
  */
 public class PostOrder {
-    public static void iterativePostOrder(TNode root) {
+    public static void iterativePostOrder(Node root) {
         if(root==null) {
             return;
         }
-        Stack<TNode> stack = new Stack<TNode>();
+        Stack<Node> stack = new Stack<Node>();
         stack.push(root);
         while(!stack.isEmpty()) {
-            TNode temp = stack.peek();
+            Node temp = stack.peek();
             if(temp.left==null && temp.right==null) {
-                TNode pop = stack.pop();
-                System.out.print(pop.data+" ");;
+                Node pop = stack.pop();
+                System.out.print(pop.data + " ");
             }
             else {
                 if(temp.right!=null) {
@@ -33,13 +33,13 @@ public class PostOrder {
     }
 
     public static void main(String[] args) {
-        TNode root = new TNode(1);
-        root.left = new TNode(2);
-        root.right = new TNode(3);
-        root.left.left = new TNode(4);
-        root.left.right = new TNode(5);
-        root.right.left = new TNode(6);
-        root.right.right = new TNode(7);
+        Node root = new Node(1);
+        root.left = new Node(2);
+        root.right = new Node(3);
+        root.left.left = new Node(4);
+        root.left.right = new Node(5);
+        root.right.left = new Node(6);
+        root.right.right = new Node(7);
         iterativePostOrder(root);
     }
 }

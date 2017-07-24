@@ -7,19 +7,19 @@ import java.util.Queue;
  * Created by rahul.rawat on 6/26/2017.
  */
 public class HeightofTree {
-    public static int findHeight(TNode root){
+    public static int findHeight(Node root) {
         int height = 0;
         if(root==null) return 0;
-        Queue<TNode> q = new LinkedList<TNode>();
+        Queue<Node> q = new LinkedList<Node>();
         q.add(root);
         q.add(null);
-        //end of level
+        //null is level marker
         while (!q.isEmpty()){
             root = q.remove();
             if(root==null){
 
                 if(!q.isEmpty())
-                    q.add(null);
+                    q.add(null);    //level ended, add marker
                 height++;
             }
             else {
@@ -32,14 +32,15 @@ public class HeightofTree {
         return height;
     }
 
+
     public static void main(String[] args) {
-        TNode root = new TNode(1);
-        root.left = new TNode(2);
-        root.right = new TNode(3);
-        root.left.left = new TNode(4);
-        root.left.right = new TNode(5);
-        root.right.left = new TNode(6);
-        root.right.right = new TNode(7);
+        Node root = new Node(1);
+        root.left = new Node(2);
+        root.right = new Node(3);
+        root.left.left = new Node(4);
+        root.left.right = new Node(5);
+        root.right.left = new Node(6);
+        root.right.right = new Node(7);
         System.out.print(findHeight(root));
     }
 }

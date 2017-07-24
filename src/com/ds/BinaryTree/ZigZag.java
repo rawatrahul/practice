@@ -6,15 +6,15 @@ import java.util.Stack;
  * Created by rahul.rawat on 6/12/2017.
  */
 public class ZigZag {
-    public static void zigzagTraversal(TNode root) {
+    public static void zigzagTraversal(Node root) {
         if (root == null)
             return;
-        Stack<TNode> s1 = new Stack<>();
-        Stack<TNode> s2 = new Stack<>();
+        Stack<Node> s1 = new Stack<>();
+        Stack<Node> s2 = new Stack<>();
         s1.push(root);
         while(!s1.empty() || !s2.empty()){
             while(!s1.empty()){
-                TNode temp = s1.pop();
+                Node temp = s1.pop();
                 System.out.print(temp.data+" ");
                 if(temp.right!=null)
                     s2.push(temp.right);
@@ -22,7 +22,7 @@ public class ZigZag {
                     s2.push(temp.left);
             }
             while(!s2.empty()){
-                TNode temp = s2.pop();
+                Node temp = s2.pop();
                 System.out.print(temp.data+" ");
                 if(temp.left!=null)
                     s1.push(temp.left);
@@ -33,13 +33,13 @@ public class ZigZag {
     }
 
     public static void main(String[] args) {
-        TNode root = new TNode(1);
-        root.left = new TNode(2);
-        root.right = new TNode(3);
-        root.left.left = new TNode(4);
-        root.left.right = new TNode(5);
-        root.right.left = new TNode(6);
-        root.right.right = new TNode(7);
+        Node root = new Node(1);
+        root.left = new Node(2);
+        root.right = new Node(3);
+        root.left.left = new Node(4);
+        root.left.right = new Node(5);
+        root.right.left = new Node(6);
+        root.right.right = new Node(7);
         zigzagTraversal(root);
     }
 }
