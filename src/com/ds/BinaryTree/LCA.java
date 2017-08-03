@@ -22,6 +22,6 @@ public class LCA {
         root.left.right = new Node(5);
         root.right.left = new Node(6);
         root.right.right = new Node(7);
-        System.out.print(lca(root,root.right.right,root.right.left).data);
+        System.out.print(lca(root, root.right.right, root.left.left).data);
     }
 }
