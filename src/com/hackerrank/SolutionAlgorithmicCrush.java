@@ -15,7 +15,7 @@ public class SolutionAlgorithmicCrush {
             arr[i] = 0;
         }
         int m = scan.nextInt();
-        int a, b, k, max = 0, x = 0;
+        int a, b, k;
         for (int i = 0; i < m; i++) {
             a = scan.nextInt();
             b = scan.nextInt();
@@ -23,9 +23,10 @@ public class SolutionAlgorithmicCrush {
             arr[a] += k;
             if ((b + 1) <= n) arr[b + 1] -= k;
         }
+        int max = 0, tempMax = 0;
         for (int i = 1; i <= n; i++) {
-            x = x + arr[i];
-            if (max < x) max = x;
+            tempMax = tempMax + arr[i];
+            if (max < tempMax) max = tempMax;
 
         }
         System.out.println(max);
